@@ -4,7 +4,7 @@ describe("Repeating Characters", function() {
     // If a character is optional, follow it with a ?
     // in the pattern
     
-    var fixThisPattern = /^___$/;
+    var fixThisPattern = /^soo?n$/;
     
     expect( 'son'   ).toMatch(fixThisPattern);
     expect( 'soon'  ).toMatch(fixThisPattern);
