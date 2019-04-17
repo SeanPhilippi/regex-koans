@@ -14,7 +14,7 @@ describe("Repeating Characters", function() {
   it('use + to match One Or More of a character', function() {
     var thisPatternWorks = /^so+n$/
     
-    var fixThisPattern = /^___$/;
+    var fixThisPattern = /^x\s+y$/;
     
     expect( 'son'        ).toMatch(thisPatternWorks);
     expect( 'soon'       ).toMatch(thisPatternWorks);
@@ -27,7 +27,7 @@ describe("Repeating Characters", function() {
   });
   
   it('use * to match Zero Or More of a character', function() {
-    var fixThisPattern = /^___$/;
+    var fixThisPattern = /^x\s*y$/;
     
     expect( 'x y'     ).toMatch(fixThisPattern);
     expect( 'x     y' ).toMatch(fixThisPattern);
@@ -38,7 +38,7 @@ describe("Repeating Characters", function() {
     
     var thisPatternWorks = /^xy{3}z$/;
     
-    var fixThisPattern = /^___$/;
+    var fixThisPattern = /^614-*5{3}-*1234$/;
     
     expect( 'xyyyz' ).toMatch(thisPatternWorks);
     
@@ -53,7 +53,7 @@ describe("Repeating Characters", function() {
     
     var thisPatternWorks = /^xy{2,5}z$/;
     
-    var fixThisPattern = /^___$/;
+    var fixThisPattern = /^3.14*2{0,1}$/;
     
     expect( 'xyyyz'   ).toMatch(thisPatternWorks);
     expect( 'xyyz'    ).toMatch(thisPatternWorks);
