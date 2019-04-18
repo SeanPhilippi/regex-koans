@@ -103,7 +103,7 @@ describe("Repeating Characters", function() {
   });
   
   it('repeater characters are special characters that must be backslash-escaped to match in strings', function() {
-    expect( 'x*y=z' ).toMatch(/^___$/);
+    expect( 'x*y=z' ).toMatch(/^x\*y\=z$/);
   });
   
   it('.* can match any amount of anything... except newline', function() {
@@ -111,17 +111,17 @@ describe("Repeating Characters", function() {
     expect( ''    ).toMatch(/^.*$/);   // here are a couple of free ones for you
     expect( 'jgi493ujitgj8g*##@!uiofg893ign4q389A*(eu89*(#=U*@UJ()()0jijge' ).toMatch(/^.*$/);
     
-    expect( '___' ).not.toMatch(/^.*$/);   // fix this string to make the test pass
+    expect( '\n' ).not.toMatch(/^.*$/);   // fix this string to make the test pass
   });
   
   it('use a character set to match anything, including newline', function() {
 
-    expect( 'The quick brown fox\njumped over the lazy dog.\n' ).toMatch(/^___*$/);
+    expect( 'The quick brown fox\njumped over the lazy dog.\n' ).toMatch(/^.*\n.*\n$/);
 
   });
   
   it('repeater characters are NOT special characters when used inside [ ]', function() {
-    var fixThisPattern = /^___$/;
+    var fixThisPattern = /^x[\*\+]y\=z$/;
     
     expect( 'x*y=z' ).toMatch(fixThisPattern);
     expect( 'x+y=z' ).toMatch(fixThisPattern);
@@ -133,7 +133,7 @@ describe("Repeating Characters", function() {
     //   The quotation will be a single line (no newlines)
     //   Any other character besides newline may appear in the quotation
     
-    var fixThisPattern = /^___$/;
+    var fixThisPattern = /^".*"$/;
     
     expect( '"Here today, gone tomorrow."'            ).toMatch(fixThisPattern);
     expect( '"Secant, tangent, and cosine. 3.14159!"' ).toMatch(fixThisPattern);
