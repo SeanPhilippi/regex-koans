@@ -68,7 +68,7 @@ describe("Repeating Characters", function() {
   });
   
   it('use {n,} for "at least n" and {,m} for "not more than m" repeated characters', function() {
-    var fixThisPattern = /^___$/;
+    var fixThisPattern = /^a\s{2,}b$/;
     
     expect( 'a  b' ).toMatch(fixThisPattern);
     expect( 'a                                                                 b' ).toMatch(fixThisPattern);
@@ -85,7 +85,7 @@ describe("Repeating Characters", function() {
     //   There must be a fractional part (after the decimal)
     //   Either or both of these parts may be zero (0)
     
-    var fixThisPattern = /^___$/;
+    var fixThisPattern = /^\d+\.\d{1,}$/;
     
     expect( '3.14159'     ).toMatch(fixThisPattern);
     expect( '0.9'         ).toMatch(fixThisPattern);
