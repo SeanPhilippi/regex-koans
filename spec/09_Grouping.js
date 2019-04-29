@@ -7,7 +7,7 @@ describe("Grouping", function() {
   
   it('the cat is optional', function() {
     
-    var fixThisPattern = /^DogCatPony$/;
+    var fixThisPattern = /^Dog(Cat)*Pony$/;
     
     expect( 'DogCatPony' ).toMatch(fixThisPattern);
     expect( 'DogPony'    ).toMatch(fixThisPattern);
@@ -15,7 +15,7 @@ describe("Grouping", function() {
   
   it('anything goes as long as we get to keep the pony', function() {
     
-    var fixThisPattern = /^DogCatPony$/;
+    var fixThisPattern = /^(Dog){0,4}(Cat)?Pony$/;
     
     expect( 'DogCatPony'          ).toMatch(fixThisPattern);
     expect( 'DogPony'             ).toMatch(fixThisPattern);
@@ -25,7 +25,7 @@ describe("Grouping", function() {
   
   it('you can nest regular expression operations inside ( )', function() {
     
-    var fixThisPattern = /^DogCatPony$/;
+    var fixThisPattern = /^(Dog)*(Cat[s]*)*Pony$/;
     
     expect( 'DogCatPony'           ).toMatch(fixThisPattern);
     expect( 'DogCatsPony'          ).toMatch(fixThisPattern);
