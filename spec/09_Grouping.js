@@ -61,7 +61,7 @@ describe("Grouping", function() {
     // rules we care about for email addresses, so our regex doesn't need
     // to worry about all the other stuff.
     
-    var fixThisPattern = /^___$/;
+    var fixThisPattern = /^[a-z0-9_\.\-+]+@[^\.]([a-z0-9]+[\.]{1}[a-z0-9]+)+[^\.]$/;
     
     // Hint: Develop the regex in pieces. First make a pattern that
     // matches the username part, then one section of the domain,
