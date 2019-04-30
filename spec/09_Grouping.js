@@ -36,7 +36,7 @@ describe("Grouping", function() {
   
   it('you can nest ( ) inside ( )', function() {
     
-    var fixThisPattern = /^___$/;
+    var fixThisPattern = /^((ab)*abcd(abab)*)+?$/;
     
     expect( 'abcd'           ).toMatch(fixThisPattern);
     expect( 'abcdabcdabcd'   ).toMatch(fixThisPattern);
