@@ -34,13 +34,13 @@ describe("Capturing Groups", function() {
     var matches1 = pattern.exec( 'My.Name01+alias@mail.gmail.com' );
     var matches2 = pattern.exec( 'simple@gmail.com'               );
     
-    expect( matches1[0]   ).toEqual('___');
-    expect( matches1[1]   ).toEqual('___');
-    expect( matches1[3]   ).toEqual('___');
-    expect( matches1[___] ).toEqual('mail.gmail.com');
+    expect( matches1[0]   ).toEqual('My.Name01+alias@mail.gmail.com');
+    expect( matches1[1]   ).toEqual('My.Name01+alias');
+    expect( matches1[3]   ).toEqual('alias');
+    expect( matches1[4] ).toEqual('mail.gmail.com');
     
-    expect( matches2[2]   ).toEqual(___);
-    expect( matches2[___] ).toEqual('.com');    // there are two possible answers here
+    expect( matches2[2]   ).toEqual(null);
+    expect( matches2[7] ).toEqual('.com');    // there are two possible answers here
     
     // Do you recognize this pattern? It's a more complex version of the email
     // pattern from the Grouping Koan. What enhancements have been made?
