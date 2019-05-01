@@ -54,11 +54,11 @@ describe("Capturing Groups", function() {
     //   * The id will be the only attribute inside the div tag
     //   * Only double-quote will be used (")
     
-    var fixThisPattern = /^___$/;
+    var fixThisPattern = /^<div id="([a-zA-Z]+)".*$/;
     
     var matches = fixThisPattern.exec( '<div id="anArbitraryId"> Here is my text node! </div>' );
     
-    expect( matches[___] ).toEqual("anArbitraryId");
+    expect( matches[1] ).toEqual("anArbitraryId");
     
   });
   
